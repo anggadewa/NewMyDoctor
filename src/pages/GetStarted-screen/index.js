@@ -1,7 +1,9 @@
 import React from 'react';
 import {ImageBackground, StyleSheet, Text, View} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import {ILGetStarted, ILLogo} from '../../assets/illustration';
 import {Button, Gap} from '../../components';
+import {colors, fonts} from '../../utils';
 
 const GetStarted = ({navigation}) => {
   return (
@@ -13,16 +15,30 @@ const GetStarted = ({navigation}) => {
         </Text>
       </View>
       <View>
-        <Button
-          title="Get Started"
-          onPress={() => navigation.navigate('Register')}
-        />
+        <LinearGradient
+          start={{x: 0, y: 1}}
+          end={{x: 1, y: 0}}
+          locations={[0, 0.9]}
+          colors={['#17B978', '#A7FF83']}
+          style={styles.gradient}>
+          <Button
+            title="Get Started"
+            onPress={() => navigation.navigate('Register')}
+          />
+        </LinearGradient>
         <Gap height={16} />
-        <Button
-          title="Sign In"
-          type="secondary"
-          onPress={() => navigation.replace('Login')}
-        />
+        <LinearGradient
+          start={{x: 0, y: 1}}
+          end={{x: 1, y: 0}}
+          locations={[0, 0]}
+          colors={['#ffffff', '#ffffff']}
+          style={styles.gradient}>
+          <Button
+            title="Sign In"
+            type="secondary"
+            onPress={() => navigation.replace('Login')}
+          />
+        </LinearGradient>
       </View>
     </ImageBackground>
   );
@@ -35,13 +51,18 @@ const styles = StyleSheet.create({
     padding: 40,
     justifyContent: 'space-between',
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
   },
   textTitle: {
     fontSize: 28,
-    color: 'white',
-    marginTop: 91,
-    fontFamily: 'Nunito-SemiBold',
-    width: 234,
+    color: colors.white,
+    marginTop: 10,
+    fontFamily: fonts.primary[600],
+    maxWidth: 234,
+    textAlign: 'right',
+    marginLeft: 60,
+  },
+  gradient: {
+    borderRadius: 10,
   },
 });
