@@ -25,7 +25,7 @@ const Register = ({navigation}) => {
           style={styles.gradient}>
           <Button
             title="Continue"
-            // onPress={() => navigation.navigate('Register')}
+            onPress={() => navigation.navigate('UploadPhoto')}
           />
         </LinearGradient>
       </View>
